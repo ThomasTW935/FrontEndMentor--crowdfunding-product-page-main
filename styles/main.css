@@ -2,5 +2,80 @@ html {
   font-size: 16px;
   font-weight: 400;
   font-family: sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+  padding: 1.5em 1em;
+}
+
+.header__hero {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.header__hero img {
+  position: relative;
+  height: auto;
+  width: 100%;
+}
+
+.header__hamburger {
+  border: 0;
+  background: 0;
+}
+
+.header__nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5em 1em;
+}
+
+.header__navList {
+  position: relative;
+  top: 2em;
+  z-index: 99;
+  background: white;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.header__navItem {
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 1em;
+  list-style: none;
+}
+
+.header__navBg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
 }
 /*# sourceMappingURL=main.css.map */
