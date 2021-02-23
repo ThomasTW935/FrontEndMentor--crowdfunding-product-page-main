@@ -7,19 +7,21 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel='stylesheet' href='./styles/main.css'/>
   <title>Frontend Mentor | Crowdfunding product page</title>
-
+  <script rel='script' src='./script.js' defer></script>
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
 </head>
-<body>
+<body id='body'>
   <header class='header'>
     <div class='header__hero'><img src='./images/image-hero-mobile.jpg'/></div>
     <div class='header__image'><img src='./images/logo.svg' alt='crowdfund logo' /></div>
-    <button class='header__hamburger'><img src='./images/icon-hamburger.svg'/></button>
+    <button type='button' class='header__hamburger header__toggle'><img  src='./images/icon-hamburger.svg'/></button>
     <nav class='header__nav'>
+      <div class='header__image'><img src='./images/logo.svg' alt='crowdfund logo' /></div>
+      <button type='button' class='close header__toggle'><img  src='./images/icon-close-menu.svg'/></button>
       <ul class='header__navList'>
         <li class='header__navItem'>About</li>
         <li class='header__navItem'>Discover</li>
