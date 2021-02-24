@@ -243,4 +243,63 @@ body {
   padding-bottom: 2em;
   color: #7a7a7a;
 }
+
+.main__about > h3 {
+  padding-bottom: 1em;
+}
+
+.main__about > p {
+  font-size: .8rem;
+  color: #7a7a7a;
+  padding: 1em 0;
+}
+
+.main .card {
+  border-radius: 6px;
+  padding: 1em;
+  border: 1px solid #7a7a7a;
+  margin-bottom: 1.5em;
+}
+
+.main .card .title {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.main .card .pledge {
+  padding: .5em 0;
+  color: #3cb4ac;
+}
+
+.main .card p {
+  color: #7a7a7a;
+  padding-top: 1em 0;
+}
+
+.main .card .itemLeft {
+  padding: 1em 0;
+  font-size: 1.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main .card .itemLeft span {
+  font-size: .8rem;
+  color: #7a7a7a;
+  margin-left: .5em;
+}
+
+.main .card button {
+  background: #3cb4ac;
+  color: white;
+  border-radius: 100px;
+  height: 3.5em;
+  font-weight: 600;
+  width: 13em;
+  border: none;
+}
 /*# sourceMappingURL=main.css.map */

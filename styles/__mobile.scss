@@ -79,6 +79,15 @@ body{
         background: rgba(0,0,0,.35);
     }
 }
+ @mixin buttonMainDesign(){
+    background: $moderateCyan;
+    color:white;
+    border-radius: 100px;
+    height: 3.5em;
+    font-weight: 600;
+    width: 13em;
+    border:none;
+ }
 .main{
     margin: 2.2em 1.5em;
     padding: 2.2em 1em;
@@ -122,13 +131,7 @@ body{
             button{cursor:pointer;}
         }
         .backProject{
-            background: $moderateCyan;
-            color:white;
-            border-radius: 100px;
-            height: 3.5em;
-            font-weight: 600;
-            width: 13em;
-            border:none;
+            @include buttonMainDesign();
         }
         .bookmark{
             border-radius: 50%;
@@ -163,6 +166,46 @@ body{
             font-size: .8rem;
             padding-bottom: 2em;
             color: $darkGray
+        }
+    }
+    &__about{
+        &>h3{padding-bottom: 1em;}
+        &>p {
+            font-size: .8rem;
+            color: $darkGray;
+            padding: 1em 0;
+        }
+    }
+    .card{
+        border-radius: 6px;
+        padding: 1em;
+        border: 1px solid $darkGray;
+        margin-bottom: 1.5em;
+        .title{
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        .pledge{
+            padding: .5em 0;
+            color: $moderateCyan
+        }
+        p{
+            color: $darkGray;
+            padding-top: 1em 0;
+        }
+        .itemLeft{
+            padding: 1em 0;
+            font-size: 1.5em;
+            display:flex;
+            align-items:center;
+            span{
+                font-size: .8rem;
+                color:$darkGray;
+                margin-left:.5em;
+            }
+        }
+        button{
+            @include buttonMainDesign();
         }
     }
 }
