@@ -72,6 +72,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 50;
   padding: inherit;
   opacity: 0;
   visibility: hidden;
@@ -115,5 +116,81 @@ body {
   height: 100%;
   z-index: -1;
   background: rgba(0, 0, 0, 0.35);
+}
+
+.main {
+  background: white;
+  margin: 2.2em 1.5em;
+  padding: 2.2em 1em;
+  border-radius: 6px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  gap: 1em;
+}
+
+.main__logo {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  margin: 0;
+}
+
+.main__details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  gap: 1em;
+}
+
+.main__details h3 {
+  width: 80%;
+}
+
+.main__details p {
+  color: #7a7a7a;
+}
+
+.main__details div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: .5em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main__details .backProject {
+  background: #3cb4ac;
+  color: white;
+  border-radius: 100px;
+  padding: 1em 2.5em;
+  border: none;
+}
+
+.main__details .bookmark {
+  border-radius: 50%;
+  width: 3.5em;
+}
+
+.main__details .bookmark img {
+  height: auto;
+  width: 100%;
 }
 /*# sourceMappingURL=main.css.map */

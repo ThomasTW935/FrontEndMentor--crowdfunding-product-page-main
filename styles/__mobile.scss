@@ -42,6 +42,7 @@ body{
         top: 0;
         left: 0;
         width: 100%;
+        z-index: 50;
         padding: inherit;
         opacity: 0;
         visibility: hidden;
@@ -75,5 +76,53 @@ body{
         height: 100%;
         z-index: -1;
         background: rgba(0,0,0,.35);
+    }
+}
+.main{
+    background: white;
+    margin: 2.2em 1.5em;
+    padding: 2.2em 1em;
+    border-radius: 6px;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+    gap: 1em;
+    &__logo{
+        position:absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+    }
+    &__details{
+        display:flex;
+        flex-direction: column;
+        align-items:center;
+        text-align:center;
+        gap: 1em;
+        h3{
+            width: 80%;
+        }
+        p{ color: $darkGray; }
+        div{
+            display:flex;
+            gap: .5em;
+            align-items:center;
+        }
+        .backProject{
+            background: $moderateCyan;
+            color:white;
+            border-radius: 100px;
+            padding: 1em 2.5em;
+            border:none;
+        }
+        .bookmark{
+            border-radius: 50%;
+            width: 3.5em;
+            img{
+                height: auto;
+                width: 100%;
+            }
+        }
     }
 }
