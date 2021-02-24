@@ -15,6 +15,7 @@ html {
 
 body {
   margin: 0;
+  background: whitesmoke;
 }
 
 .overflow--hidden {
@@ -119,7 +120,6 @@ body {
 }
 
 .main {
-  background: white;
   margin: 2.2em 1.5em;
   padding: 2.2em 1em;
   border-radius: 6px;
@@ -131,7 +131,13 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   position: relative;
-  gap: 1em;
+  gap: 2em;
+}
+
+.main section {
+  background: White;
+  padding: 2em 1em;
+  border-radius: 6px;
 }
 
 .main__logo {
@@ -160,10 +166,12 @@ body {
 
 .main__details h3 {
   width: 80%;
+  font-weight: 700;
 }
 
 .main__details p {
   color: #7a7a7a;
+  font-size: .8rem;
 }
 
 .main__details div {
@@ -174,13 +182,20 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-size: 1rem;
+}
+
+.main__details div button {
+  cursor: pointer;
 }
 
 .main__details .backProject {
   background: #3cb4ac;
   color: white;
   border-radius: 100px;
-  padding: 1em 2.5em;
+  height: 3.5em;
+  font-weight: 600;
+  width: 13em;
   border: none;
 }
 
@@ -192,5 +207,40 @@ body {
 .main__details .bookmark img {
   height: auto;
   width: 100%;
+}
+
+.main__stats {
+  text-align: Center;
+}
+
+.main__stats * {
+  padding: .5em;
+}
+
+.main__stats h2 {
+  font-size: 1.8rem;
+  padding-top: 1em;
+}
+
+.main__stats h2:not(h2:first-child) {
+  position: relative;
+}
+
+.main__stats h2:not(h2:first-child)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  height: 100%;
+  width: 30%;
+  border-top: 1px solid #7a7a7a;
+}
+
+.main__stats p {
+  font-size: .8rem;
+  padding-bottom: 2em;
+  color: #7a7a7a;
 }
 /*# sourceMappingURL=main.css.map */
