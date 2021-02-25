@@ -144,8 +144,8 @@ body {
   position: absolute;
   top: 0;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   margin: 0;
 }
 
@@ -258,7 +258,11 @@ body {
   border-radius: 6px;
   padding: 1em;
   border: 1px solid #7a7a7a;
-  margin-bottom: 1.5em;
+  margin-top: 1.5em;
+}
+
+.main .card:last-child {
+  opacity: .5;
 }
 
 .main .card .title {
@@ -301,5 +305,6 @@ body {
   font-weight: 600;
   width: 13em;
   border: none;
+  cursor: pointer;
 }
 /*# sourceMappingURL=main.css.map */
