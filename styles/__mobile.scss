@@ -5,6 +5,37 @@ body{
 .overflow--hidden{
     overflow: hidden;
 }
+     .hide{
+    opacity: 0;
+    visibility: hidden;
+}
+@mixin modalBackground(){
+    position:fixed;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: rgba(0,0,0,.35);
+}
+@mixin buttonMainDesign(){
+    background: $moderateCyan;
+    color:white;
+    border-radius: 100px;
+    height: 3.5em;
+    font-weight: 600;
+    width: 13em;
+    border:none;
+    cursor:pointer;
+ }
+ @mixin modalDefaultStyle($position){
+    position:$position;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+ }
+
 .header{
     display:flex;
     justify-content: space-between;
@@ -21,14 +52,7 @@ body{
             width: 100%;
         }
     }
-    .showModal{
-        opacity: 1;
-        visibility: visible;
-    }
-    .hideModal{
-        opacity: 0;
-        visibility: hidden;
-    }
+    
     button{
         border: 0;
         background: none;
@@ -39,14 +63,8 @@ body{
         justify-self: flex-end;
     }
     &__nav{
-        position:fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 50;
+        @include modalDefaultStyle(fixed);
         padding: inherit;
-        opacity: 0;
-        visibility: hidden;
         transition: .3s ease-in;
         display:grid;
         grid-template: 20% 1fr / repeat(2,1fr); 
@@ -70,24 +88,10 @@ body{
         }
     }
     &__navBg{
-        position:fixed;
-        top:0;
-        left:0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        background: rgba(0,0,0,.35);
+        @include modalBackground();
     }
 }
- @mixin buttonMainDesign(){
-    background: $moderateCyan;
-    color:white;
-    border-radius: 100px;
-    height: 3.5em;
-    font-weight: 600;
-    width: 13em;
-    border:none;
- }
+
 .main{
     margin: 2.2em 1.5em;
     padding: 2.2em 1em;
@@ -211,5 +215,39 @@ body{
             @include buttonMainDesign();
             cursor:pointer;
         }
+    }
+    &__modal{
+        position:absolute;
+        top: -1em;
+        background:white;
+        z-index: 50;
+    }
+    &__modalTitle{
+        display:grid;
+        grid-template-columns: 1fr 10%;
+        gap: 1em;
+        p{
+            grid-column: 1/3;
+            font-size: .8rem;
+            color: $darkGray;
+        };
+        .close{justify-self: flex-end};
+    }
+    
+    &__modalCard{
+    }
+    &__completed{
+        display:flex;
+        flex-direction: column;
+        align-items:center;
+        text-align:center;
+        gap: 1em;
+        background:white;
+        @include modalDefaultStyle(absolute);
+        button{@include buttonMainDesign();}
+    }
+    &__modalBg{
+        @include modalBackground();
+        z-index:49;
     }
 }

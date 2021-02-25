@@ -7,8 +7,8 @@ function toggleModal(){
     buttons.forEach(button =>{
         button.addEventListener('click', ()=>{
             console.log(button)
-            nav.classList.toggle('showModal')
-            buttons[0].classList.toggle('hideModal')
+            nav.classList.toggle('hide')
+            buttons[0].classList.toggle('hide')
             body.classList.toggle('overflow--hidden')
         })
     })
