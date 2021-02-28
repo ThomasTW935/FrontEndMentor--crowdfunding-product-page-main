@@ -20,10 +20,10 @@
   <header class='header'>
     <div class='header__hero'><img src='./images/image-hero-mobile.jpg'/></div>
     <div class='header__image'><img src='./images/logo.svg' alt='crowdfund logo' /></div>
-    <button type='button' class='header__hamburger header__toggle'><img  src='./images/icon-hamburger.svg'/></button>
+    <button type='button' class='header__hamburger header__toggle modal__toggle'><img  src='./images/icon-hamburger.svg'/></button>
     <nav class='header__nav hide'>
       <div class='header__image'><img src='./images/logo.svg' alt='crowdfund logo' /></div>
-      <button type='button' class='close header__toggle'><img  src='./images/icon-close-menu.svg'/></button>
+      <button type='button' class='close header__toggle modal__toggle'><img  src='./images/icon-close-menu.svg'/></button>
       <ul class='header__navList'>
         <li class='header__navItem'>About</li>
         <li class='header__navItem'>Discover</li>
@@ -38,7 +38,7 @@
       <h3>Mastercraft Bamboo Monitor Riser</h3>
       <p>A beautiful & handcrafted monitor stand to reduce neck and eye strain.</p>
       <div>
-        <button class='backProject'>Back this project</button>
+        <button class='backProject modal__toggle pledge__toggle'>Back this project</button>
         <button class='bookmark'><div><img src='./images/icon-bookmark.svg' alt='bookmark'/></div></button>
       </div>
     </section>
@@ -69,7 +69,7 @@
           you’ll be added to a special Backer member list.
         </p>
         <h3 class='itemLeft'>101 <span>left</span></h3>
-        <button>Select Reward</button>
+        <button class='modal__toggle pledge__toggle'>Select Reward</button>
       </div>
       <div class="card">
         <h3 class='title'>Black Edition Stand</h3>
@@ -77,7 +77,7 @@
         <p>You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer 
         member list. Shipping is included.</p>
         <h3 class='itemLeft'>64 <span>left</span></h3>
-        <button>Select Reward</button>
+        <button class='modal__toggle pledge__toggle'>Select Reward</button>
       </div>
       <div class="card">
         <h3 class='title'>Mahogany Special Edition</h3>
@@ -85,58 +85,82 @@
         <p>You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added 
         to our Backer member list. Shipping is included.</p>
         <h3 class='itemLeft'>0 <span>left</span></h3>
-        <button>Out of Stock</button>
+        <button class='modal__toggle pledge__toggle'>Out of Stock</button>
       </div>
     </section>
-    <section class="main__modal">
+    <section class="main__modal ">
       <div class='main__modalTitle'>
         <h3>Back this project</h3>
-        <div class='close'><img src='./images/icon-close-modal.svg'/></div>
+        <button class='close modal__toggle pledge__toggle'><img src='./images/icon-close-modal.svg'/></button>
         <p>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
       </div>
       <div class='main__modalCard card'>
-        <h3 class='title'>Pledge with no reward</h3>
+        <div class='card__header'>
+          <label>
+            <input class='radio' type="radio" name="pledgeReward" id="">
+            <span class='customRadio'></span>
+          </label>
+          <h3 class='title'>Pledge with no reward</h3>
+        </div>
         <p>Choose to support us without a reward if you simply believe in our project. As a backer, 
         you will be signed up to receive product updates via email.</p>
         <div class='CTACon'>
-          <input type='number' min='25' placeholder='Enter your pledge'/>
-          <button class='ctaContinue'>Continue</button>
+          <input type='number' min='0' placeholder='Enter your pledge'/>
+          <button class='ctaContinue modal__toggle toggle__completed--show'>Continue</button>
         </div>
       </div>
       <div class="main__modalCard card">
-        <h3 class='title'>Bamboo Stand</h3>
-        <p class="pledge">Pledge $25 or more</p>
+        <div class='card__header'>
+          <label>
+            <input class='radio' type="radio" name="pledgeReward" id="">
+            <span class='customRadio'></span>
+          </label>
+          <h3 class='title'>Bamboo Stand</h3>
+          <p class="pledge">Pledge $25 or more</p>
+        </div>
         <p>You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and
         you’ll be added to a special Backer member list.</p>
         <h3 class="itemLeft">101 <span>left</span></h3>
         <div class='CTACon'>
           <input type='number' min='25' placeholder='Enter your pledge'/>
           <button class='minimum'><span class='dollarSign'>$</span>25</button>
-          <button>Continue</button>
+          <button class='modal__toggle toggle__completed--show'>Continue</button>
         </div>
       </div>
       <div class="main__modalCard card">
-        <h3 class="title">Black Edition Stand</h3>
-        <p class="pledge">Pledge $75 or more</p>
+        <div class='card__header'>
+          <label>
+            <input class='radio' type="radio" name="pledgeReward" id="">
+            <span class='customRadio'></span>
+          </label>
+          <h3 class="title">Black Edition Stand</h3>
+          <p class="pledge">Pledge $75 or more</p>
+        </div>
         <p>You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer
         member list. Shipping is included.</p>
         <h3 class="itemLeft">64 <span>left</span></h3>
         <div class="CTACon">
           <input type='number' min='75' placeholder='Enter your pledge'/>
           <button class='minimum'><span class='dollarSign'>$</span>75</button>
-          <button>Continue</button>
+          <button class='modal__toggle toggle__completed--show'>Continue</button>
         </div>
       </div>
       <div class="main__modalCard card">
-        <h3 class="title">Mahogany Special Edition</h3>
-        <p class="pledge">Pledge $200 or more</p>
+        <div class='card__header'>
+          <label>
+            <input class='radio' type="radio" name="pledgeReward" id="">
+            <span class='customRadio'></span>
+          </label>
+          <h3 class="title">Mahogany Special Edition</h3>
+          <p class="pledge">Pledge $200 or more</p>
+        </div>
         <p>You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added
         to our Backer member list. Shipping is included.</p>
         <h3 class="itemLeft">0 <span>left</span></h3>
         <div class="CTACon">
           <input type='number' min='200' placeholder='Enter your pledge'/>
           <button class='minimum'><span class='dollarSign'>$</span>200</button>
-          <button>Continue</button>
+          <button class='modal__toggle toggle__completed--show'>Continue</button>
         </div>
       </div>
     </section>
@@ -145,9 +169,9 @@
       <h3>Thanks for your support!</h3>
       <p>Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get
         an email once our campaign is completed.</p>
-      <button>Got it!</button>
+      <button class='modal__toggle toggle__completed--hide'>Got it!</button>
     </section>
-    <div class="main__modalBg"></div>
+    <div class="main__modalBg "></div>
   </main>
 
 </body>
