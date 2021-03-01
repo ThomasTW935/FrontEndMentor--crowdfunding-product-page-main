@@ -18,8 +18,11 @@
 </head>
 <body id='body'>
   <header class='header'>
-    <div class='header__hero'><img src='./images/image-hero-mobile.jpg'/></div>
-    <div class='header__image'><img src='./images/logo.svg' alt='crowdfund logo' /></div>
+    <div class='header__hero'>
+      <img class='mobile' src='./images/image-hero-mobile.jpg'/>
+      <img class='desktop' src='./images/image-hero-desktop.jpg'/>
+    </div>
+    <div class='header__image logo__mobile'><img src='./images/logo.svg' alt='crowdfund logo' /></div>
     <button type='button' class='header__hamburger header__toggle modal__toggle'><img  src='./images/icon-hamburger.svg'/></button>
     <nav class='header__nav hide'>
       <div class='header__image'><img src='./images/logo.svg' alt='crowdfund logo' /></div>
@@ -37,18 +40,24 @@
     <section class='main__details'>
       <h3>Mastercraft Bamboo Monitor Riser</h3>
       <p>A beautiful & handcrafted monitor stand to reduce neck and eye strain.</p>
-      <div>
+      <div class='main__detailsButtons'>
         <button class='backProject modal__toggle pledge__toggle'>Back this project</button>
-        <button class='bookmark'><div><img src='./images/icon-bookmark.svg' alt='bookmark'/></div></button>
+        <button class='bookmark'><div><img src='./images/icon-bookmark.svg' alt='bookmark'/></div><span>Bookmark</span></button>
       </div>
     </section>
     <section class='main__stats'>
-      <h2>$89,914</h2> 
-      <p>of $100,000 backed</p>
-      <h2>5,007</h2>
-      <p>total backers</p>
-      <h2>56</h2>
-      <p>days left</p>
+      <div>
+        <h2>$89,914</h2> 
+        <p>of $100,000 backed</p>
+      </div>
+      <div>
+        <h2>5,007</h2>
+        <p>total backers</p>
+      </div>
+      <div>
+        <h2>56</h2>
+        <p>days left</p>
+      </div>
     </section>
     <section class='main__about'>
       <h3>About this project</h3>
@@ -88,7 +97,7 @@
         <button class='modal__toggle pledge__toggle'>Out of Stock</button>
       </div>
     </section>
-    <section class="main__modal ">
+    <section class="main__modal hide">
       <div class='main__modalTitle'>
         <h3>Back this project</h3>
         <button class='close modal__toggle pledge__toggle'><img src='./images/icon-close-modal.svg'/></button>
@@ -100,7 +109,7 @@
             <input class='radio' type="radio" name="pledgeReward" id="">
             <span class='customRadio'></span>
           </label>
-          <h3 class='title'>Pledge with no reward</h3>
+          <h3 class='title pledgeNoReward'>Pledge with no reward</h3>
         </div>
         <p>Choose to support us without a reward if you simply believe in our project. As a backer, 
         you will be signed up to receive product updates via email.</p>
@@ -171,7 +180,7 @@
         an email once our campaign is completed.</p>
       <button class='modal__toggle toggle__completed--hide'>Got it!</button>
     </section>
-    <div class="main__modalBg "></div>
+    <div class="main__modalBg hide"></div>
   </main>
 
 </body>

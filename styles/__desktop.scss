@@ -1,0 +1,83 @@
+@media screen and (min-width: 1440px){
+    .header{
+        &__hero{
+            .mobile{display:none;}
+            .desktop{display:block;}
+        }
+        &__toggle,&__navBg,.logo__mobile{display:none;}
+        &__nav{
+            width: 80%;
+            margin:0 auto;
+            position:relative;
+            visibility: visible;
+            opacity: 1;
+            grid-template: 1fr / repeat(2,1fr);
+            align-items:center;
+            padding: 0;
+        }
+        &__navList{
+            grid-column: 2/3;
+            display:flex;
+            justify-self: flex-end;
+            width:auto;
+            color:white;
+            background:none;
+        }
+        &__navItem{
+            font-size: 1rem;
+            padding: 1em .5em;
+        }
+    }
+    .main{
+        width: 50%;
+        margin: 0 auto;
+        top: 100px;
+        section{
+            padding: 2em;
+        }
+        &__details{
+            &Buttons{
+                padding-top: 1.5em;
+                width: 100%;
+                justify-content: space-between;
+            }
+            h3{font-size: 1.35rem;}
+            .bookmark{
+                display:flex;
+                align-items:center;
+                gap: 1em;
+                border-radius: 500px;
+                border:none;
+                width: auto;
+                div{
+                    width: 3em;
+                }
+                span{
+                    display:block;
+                    color: $darkGray;
+                    padding-right: 2em;
+                }
+            }
+        }
+        &__stats{
+            display:flex;
+            justify-content: space-around;
+            div{
+                width: 100%;
+                align-items:flex-start;
+                &:not(div:last-child){
+                    &::before{
+                        left: 0;
+                        transform: translateX(0);
+                        width: 80%;
+                        height: 70%;
+                        border: 0;
+                        border-right: 1px solid $darkGray;
+                        opacity: .5;
+
+                    }
+                }
+            }
+        }
+    }   
+}
