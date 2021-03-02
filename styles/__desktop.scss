@@ -1,4 +1,7 @@
 @media screen and (min-width: 1440px){
+    body{
+        font-size: 1.2rem;
+    }
     .header{
         &__hero{
             .mobile{display:none;}
@@ -33,6 +36,7 @@
         margin: 0 auto;
         top: 100px;
         section{
+            font-size: 1.2rem;
             padding: 2em;
         }
         &__details{
@@ -41,11 +45,12 @@
                 width: 100%;
                 justify-content: space-between;
             }
-            h3{font-size: 1.35rem;}
+            h3{font-size: 1.4em;}
+            p{font-size:.85em;}
             .bookmark{
                 display:flex;
                 align-items:center;
-                gap: 1em;
+                gap: 1.5em;
                 border-radius: 500px;
                 border:none;
                 width: auto;
@@ -55,13 +60,14 @@
                 span{
                     display:block;
                     color: $darkGray;
-                    padding-right: 2em;
+                    padding-right: 3em;
                 }
             }
         }
         &__stats{
             display:flex;
             justify-content: space-around;
+            gap: 3em;
             div{
                 width: 100%;
                 align-items:flex-start;
@@ -69,7 +75,7 @@
                     &::before{
                         left: 0;
                         transform: translateX(0);
-                        width: 80%;
+                        width: 100%;
                         height: 70%;
                         border: 0;
                         border-right: 1px solid $darkGray;
@@ -77,6 +83,21 @@
 
                     }
                 }
+            }
+        }
+        .card{
+            display:grid;
+            grid-template: 10% 1fr 10% / repeat(2,1fr);
+            align-items:center;
+            font-size: 1rem;
+            .title{font-size: 1.1em;}
+            .pledge,button{
+                grid-column: 2/3;
+                justify-self: flex-end;
+            }
+            .pledge{font-size: 1em;}
+            p{
+                grid-column: 1/3;
             }
         }
     }   
