@@ -182,7 +182,7 @@ body {
   font-size: 1rem;
 }
 
-.main__details div button {
+.main__details div button, .main__details div label {
   cursor: pointer;
 }
 
@@ -197,17 +197,56 @@ body {
   padding: 0 2.5em;
 }
 
-.main__details .bookmark {
-  border-radius: 50%;
-  width: 3.5em;
+.main__details .backProject:hover, .main__details .backProject:active {
+  background: #147b74;
 }
 
-.main__details .bookmark img {
+.main__details .bookmark {
+  border-radius: 50%;
   height: auto;
-  width: 100%;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.main__details .bookmark__checkBox {
+  display: none;
+}
+
+.main__details .bookmark__checkBox:checked ~ svg circle {
+  fill: #3cb4ac;
+}
+
+.main__details .bookmark__checkBox:checked ~ svg path {
+  fill: white;
+}
+
+.main__details .bookmark__checkBox:checked ~ span {
+  color: #3cb4ac;
+}
+
+.main__details .bookmark__checkBox:checked ~ span span {
+  color: inherit;
+  display: inline;
+}
+
+.main__details .bookmark svg {
+  height: 52px;
+  width: 52px;
+}
+
+.main__details .bookmark circle {
+  fill: #7a7a7a;
+}
+
+.main__details .bookmark path {
+  fill: #c9c9c9;
 }
 
 .main__details .bookmark span {
+  display: none;
+  font-size: 1rem;
+}
+
+.main__details .bookmark span span {
   display: none;
 }
 
@@ -314,6 +353,10 @@ body {
   cursor: pointer;
   padding: 0 2em;
   margin-top: 1em;
+}
+
+.main .card button:hover, .main .card button:active {
+  background: #147b74;
 }
 
 .main__modal {
@@ -481,6 +524,10 @@ body {
   padding: 0 2.5em;
 }
 
+.main__completed button:hover, .main__completed button:active {
+  background: #147b74;
+}
+
 .main__modalBg {
   position: fixed;
   top: 0;
@@ -564,18 +611,14 @@ body {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    padding-right: 2.5em;
     gap: 1.5em;
     border-radius: 500px;
     border: none;
-    width: auto;
-  }
-  .main__details .bookmark div {
-    width: 3em;
   }
   .main__details .bookmark span {
-    display: block;
+    display: inline;
     color: #7a7a7a;
-    padding-right: 3em;
   }
   .main__stats {
     display: -webkit-box;

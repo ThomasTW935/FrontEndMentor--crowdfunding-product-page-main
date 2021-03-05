@@ -50,17 +50,13 @@
             .bookmark{
                 display:flex;
                 align-items:center;
+                padding-right: 2.5em;
                 gap: 1.5em;
                 border-radius: 500px;
                 border:none;
-                width: auto;
-                div{
-                    width: 3em;
-                }
                 span{
-                    display:block;
+                    display:inline;
                     color: $darkGray;
-                    padding-right: 3em;
                 }
             }
         }

@@ -26,6 +26,9 @@ body{
     font-weight: 600;
     border:none;
     cursor:pointer;
+    &:hover,&:active{
+        background: $darkCyan;
+    }
  }
  @mixin modalDefaultStyle($position){
     position:$position;
@@ -132,7 +135,7 @@ body{
             gap: .5em;
             align-items:center;
             font-size: 1rem;
-            button{cursor:pointer;}
+            button,label{cursor:pointer;}
         }
         .backProject{
             @include buttonMainDesign();
@@ -140,14 +143,37 @@ body{
         }
         .bookmark{
             border-radius: 50%;
-            width: 3.5em;
-            img{
-                height: auto;
-                width: 100%;
+            height: auto;
+            background: rgba(0,0,0,.05);
+            &__checkBox{display:none;}
+            &__checkBox:checked{
+                &~ svg{
+                    circle{fill: $moderateCyan;}
+                    path{fill: white;}
+                }
+                &~span{
+                    color: $moderateCyan;
+                    span{
+                        color: inherit;
+                        display:inline;
+                    }
+                }
+            } 
+            svg{
+                height: 52px;
+                width: 52px;
+            }
+            circle{
+                fill:$darkGray;
+            }
+            path{
+                fill:rgb(201, 201, 201);
             }
             span{
                 display:none;
-            }
+                font-size: 1rem;
+                span{display:none;}
+           }
         }
     }
     &__stats{
