@@ -251,23 +251,26 @@ body {
 }
 
 .main__stats > div:not(.bar) {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: (1fr)[3] 10%;
-  -ms-grid-columns: 1fr;
-      grid-template: repeat(3/1fr) 10%/1fr;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  text-align: center;
   gap: .5em;
   margin-top: 1.5em;
 }
 
-.main__stats .backed, .main__stats .backers {
+.main__stats #backed, .main__stats #backers {
   position: relative;
 }
 
-.main__stats .backed::before, .main__stats .backers::before {
+.main__stats #backed::before, .main__stats #backers::before {
   content: '';
   position: absolute;
   top: 0;
@@ -276,7 +279,7 @@ body {
           transform: translateX(-50%);
   width: 30%;
   height: 100%;
-  border-bottom: 1px solid #7a7a7a;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .main__stats .bar {
@@ -303,6 +306,7 @@ body {
   transition: -webkit-transform .4s ease-in-out;
   transition: transform .4s ease-in-out;
   transition: transform .4s ease-in-out, -webkit-transform .4s ease-in-out;
+  border-radius: inherit;
 }
 
 .main__stats h2 {
@@ -668,28 +672,29 @@ body {
     font-size: .8rem;
   }
   .main__stats {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-rows: 1fr 10%;
+    -ms-grid-columns: (1fr)[3];
+        grid-template: 1fr 10%/repeat(3, 1fr);
+    gap: 1.5em;
   }
-  .main__stats div {
-    width: 100%;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-    padding: 0 1em;
-  }
-  .main__stats div:not(div:last-child)::before {
-    left: 0;
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
+  .main__stats #backed::before, .main__stats #backers::before {
+    left: 0%;
     width: 100%;
     height: 70%;
-    border: 0;
-    border-right: 1px solid #7a7a7a;
-    opacity: .5;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    border: none;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .main__stats .bar {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2/3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-column: 1/4;
   }
   .main .card {
     display: -ms-grid;

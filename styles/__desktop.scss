@@ -61,24 +61,22 @@
             }
         }
         &__stats{
-            display:flex;
-            justify-content: space-around;
-            div{
-                width: 100%;
-                align-items:flex-start;
-                padding: 0 1em;
-                &:not(div:last-child){
-                    &::before{
-                        left: 0;
-                        transform: translateX(0);
-                        width: 100%;
-                        height: 70%;
-                        border: 0;
-                        border-right: 1px solid $darkGray;
-                        opacity: .5;
-
-                    }
+            display:grid;
+            grid-template: 1fr 10% / repeat(3, 1fr);
+            gap: 1.5em;
+            #backed,#backers{
+                &::before{
+                    left: 0%;
+                    width: 100%;
+                    height: 70%;
+                    transform: translateX(0);
+                    border:none;
+                    border-right: 1px solid hsla(0, 0%, 0%, 0.1);
                 }
+            }
+            .bar{
+                grid-row: 2/3;
+                grid-column: 1/4;
             }
         }
         .card{

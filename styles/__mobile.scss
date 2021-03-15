@@ -178,13 +178,14 @@ body{
     }
     &__stats{
         &>div:not(.bar){
-            display:grid;
-            grid-template: repeat(3/1fr) 10% / 1fr;
+            display:flex;
+            flex-direction: column;
             justify-content:center;
+            text-align:center;
             gap: .5em;
             margin-top: 1.5em;
         }
-        .backed,.backers{
+        #backed,#backers{
             position:relative;
             &::before{
                 content: '';
@@ -194,7 +195,7 @@ body{
                 transform: translateX(-50%);
                 width: 30%;
                 height: 100%;
-                border-bottom: 1px solid $darkGray;
+                border-bottom: 1px solid hsla(0, 0%, 0%, 0.1);
             }
         }
         .bar{
@@ -214,6 +215,7 @@ body{
                 transform-origin: left;
                 background:$moderateCyan;
                 transition: transform .4s ease-in-out;
+                border-radius: inherit;
             }
         }
         h2{

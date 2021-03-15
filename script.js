@@ -1,4 +1,4 @@
-let stats = {
+let data = {
     backed: 89914,
     backers: 5007,
     daysLeft: 56,
@@ -6,14 +6,27 @@ let stats = {
 }
 
 let progressBarChange = ()=>{
-    let progress = stats.backed / stats.goal
+    let progress = data.backed / data.goal
     let progressBar = document.querySelector('.progress')
     progressBar.style.transform = `scaleX(${progress})`
+}
+let setStats = (data)=>{
+    let stats = document.querySelectorAll('.stat')
+    stats.forEach(stat=>{
+        for(key in data){
+            if(stat.id == key){
+                let value = (key == 'backed') ? '$' + data[key] : data[key] 
+                stat.children[0].innerHTML = value
+                console.log(data[key])
+            }
+        }
+    })
 }
 
 let init = ()=>{
     toggleModal()
     progressBarChange()
+    setStats(data)
 }
 
 init()
