@@ -256,18 +256,20 @@ body{
             padding: .5em 0;
             color: $moderateCyan
         }
-        p{
+        .description{
+            margin: 1em 0;
             color: $darkGray;
         }
         .itemLeft{
-            font-size: 1.5rem;
+            font-size: 1rem;
             display:flex;
             align-items:center;
             margin: .5em 0;
-            span{
-                font-size: .8rem;
-                color:$darkGray;
-                margin-left:.5em;
+            color:$darkGray;
+            gap: .5em;
+            .value{
+                font-size: 2em;
+                color:black;
             }
         }
         button,.pledge__toggle{
