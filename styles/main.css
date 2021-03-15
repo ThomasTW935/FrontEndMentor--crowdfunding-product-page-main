@@ -250,26 +250,24 @@ body {
   display: none;
 }
 
-.main__stats div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.main__stats > div:not(.bar) {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (1fr)[3] 10%;
+  -ms-grid-columns: 1fr;
+      grid-template: repeat(3/1fr) 10%/1fr;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   gap: .5em;
   margin-top: 1.5em;
 }
 
-.main__stats div:not(div:last-child) {
+.main__stats .backed, .main__stats .backers {
   position: relative;
 }
 
-.main__stats div:not(div:last-child)::before {
+.main__stats .backed::before, .main__stats .backers::before {
   content: '';
   position: absolute;
   top: 0;
@@ -279,6 +277,32 @@ body {
   width: 30%;
   height: 100%;
   border-bottom: 1px solid #7a7a7a;
+}
+
+.main__stats .bar {
+  width: 100%;
+  height: 1rem;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 1em;
+  overflow: hidden;
+  position: relative;
+}
+
+.main__stats .bar .progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  -webkit-transform: scaleX(0.1);
+          transform: scaleX(0.1);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  background: #3cb4ac;
+  -webkit-transition: -webkit-transform .4s ease-in-out;
+  transition: -webkit-transform .4s ease-in-out;
+  transition: transform .4s ease-in-out;
+  transition: transform .4s ease-in-out, -webkit-transform .4s ease-in-out;
 }
 
 .main__stats h2 {
@@ -299,6 +323,17 @@ body {
   font-size: .8em;
   color: #7a7a7a;
   padding: 1em 0;
+}
+
+.main .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1em;
 }
 
 .main .card, .main__modalCard {
@@ -324,7 +359,6 @@ body {
 
 .main .card p, .main__modalCard p {
   color: #7a7a7a;
-  padding: 1em 0;
 }
 
 .main .card .itemLeft, .main__modalCard .itemLeft {
@@ -335,6 +369,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: .5em 0;
 }
 
 .main .card .itemLeft span, .main__modalCard .itemLeft span {
@@ -343,7 +378,7 @@ body {
   margin-left: .5em;
 }
 
-.main .card button, .main__modalCard button {
+.main .card button, .main .card .pledge__toggle, .main__modalCard button, .main__modalCard .pledge__toggle {
   background: #3cb4ac;
   color: white;
   border-radius: 100px;
@@ -351,11 +386,16 @@ body {
   font-weight: 600;
   border: none;
   cursor: pointer;
-  padding: 0 2em;
-  margin-top: 1em;
+  font-size: .8rem;
+  display: -ms-grid;
+  display: grid;
+  place-items: Center;
+  align-self: flex-start;
+  padding: .5em .75em;
+  max-width: 170px;
 }
 
-.main .card button:hover, .main .card button:active, .main__modalCard button:hover, .main__modalCard button:active {
+.main .card button:hover, .main .card button:active, .main .card .pledge__toggle:hover, .main .card .pledge__toggle:active, .main__modalCard button:hover, .main__modalCard button:active, .main__modalCard .pledge__toggle:hover, .main__modalCard .pledge__toggle:active {
   background: #147b74;
 }
 
@@ -391,6 +431,20 @@ body {
   justify-self: flex-end;
 }
 
+.main__modalCard .radio {
+  display: none;
+}
+
+.main__modalCard .radio:checked ~ .card__header label .customRadio {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.main__modalCard .radio:checked ~ .CTACon {
+  display: -ms-grid;
+  display: grid;
+}
+
 .main__modalCard .card__header {
   display: -ms-grid;
   display: grid;
@@ -420,15 +474,7 @@ body {
   display: -ms-grid;
   display: grid;
   place-items: center;
-}
-
-.main__modalCard .card__header .radio {
-  display: none;
-}
-
-.main__modalCard .card__header .radio:checked ~ .customRadio {
-  -webkit-transform: scale(1);
-          transform: scale(1);
+  cursor: pointer;
 }
 
 .main__modalCard .card__header .customRadio {
@@ -449,9 +495,8 @@ body {
   padding: 1em 0;
   margin-top: 1.5em;
   border-top: 1px solid #7a7a7a;
-  display: -ms-grid;
-  display: grid;
   gap: .5em;
+  display: none;
   -ms-grid-rows: (1fr)[2];
   -ms-grid-columns: 40% 1fr;
       grid-template: repeat(2, 1fr)/40% 1fr;
@@ -472,7 +517,7 @@ body {
 }
 
 .main__modalCard .CTACon .minimum {
-  width: 75%;
+  width: 100%;
   max-width: 100px;
   background: none;
   color: black;
@@ -480,6 +525,9 @@ body {
   text-align: start;
   padding-left: 1em;
   justify-self: flex-end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .main__modalCard .CTACon .dollarSign {
@@ -543,6 +591,9 @@ body {
 @media screen and (min-width: 1440px) {
   html {
     font-size: 1.2rem;
+  }
+  .header__hero {
+    width: 100%;
   }
   .header__hero .mobile {
     display: none;
@@ -667,6 +718,10 @@ body {
     -ms-grid-column: 1;
     -ms-grid-column-span: 2;
     grid-column: 1/3;
+  }
+  .main .card .pledge__toggle {
+    justify-self: flex-end;
+    padding: .5em 1.5em;
   }
   .main__modalCard {
     display: -ms-grid;

@@ -177,24 +177,43 @@ body{
         }
     }
     &__stats{
-        div{
-            display:flex;
-            flex-direction: column;
-            align-items:center;
+        &>div:not(.bar){
+            display:grid;
+            grid-template: repeat(3/1fr) 10% / 1fr;
+            justify-content:center;
             gap: .5em;
             margin-top: 1.5em;
-            &:not(div:last-child){
-                position:relative;
-                &::before{
-                    content: '';
-                    position:absolute;
-                    top: 0;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    width: 30%;
-                    height: 100%;
-                    border-bottom: 1px solid $darkGray;
-                }
+        }
+        .backed,.backers{
+            position:relative;
+            &::before{
+                content: '';
+                position:absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 30%;
+                height: 100%;
+                border-bottom: 1px solid $darkGray;
+            }
+        }
+        .bar{
+            width: 100%;
+            height: 1rem;
+            background: hsla(0, 0%, 0%, 0.1);
+            border-radius: 1em;
+            overflow:hidden;
+            position:relative;
+            .progress{
+                position:absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                transform: scaleX(.1);
+                transform-origin: left;
+                background:$moderateCyan;
+                transition: transform .4s ease-in-out;
             }
         }
         h2{
@@ -214,6 +233,11 @@ body{
             padding: 1em 0;
         }
     }
+    .card{
+        display:flex;
+        flex-direction:column;
+        gap: 1em;
+    }
     .card,&__modalCard{
         border-radius: 6px;
         padding: 1em;
@@ -232,22 +256,26 @@ body{
         }
         p{
             color: $darkGray;
-            padding: 1em 0;
         }
         .itemLeft{
             font-size: 1.5rem;
             display:flex;
             align-items:center;
+            margin: .5em 0;
             span{
                 font-size: .8rem;
                 color:$darkGray;
                 margin-left:.5em;
             }
         }
-        button{
+        button,.pledge__toggle{
             @include buttonMainDesign();
-            padding: 0 2em;
-            margin-top: 1em;
+            font-size: .8rem;
+            display:grid;
+            place-items:Center;
+            align-self: flex-start;
+            padding: .5em .75em;
+            max-width: 170px;
         }
     }
     &__modal{
@@ -276,6 +304,15 @@ body{
     }
     
     &__modalCard{
+        .radio{
+            display:none;
+            &:checked ~ .card__header label .customRadio{
+                transform: scale(1);
+            }
+            &:checked ~ .CTACon{
+                display:grid;
+            }
+        }
         .card__header{
             display:grid;
             grid-template: repeat(2,1em) / 10% 1fr;
@@ -292,13 +329,10 @@ body{
                 border: 1px solid $darkGray;
                 display:grid;
                 place-items:center;
+                cursor: pointer;
+
             }
-            .radio{
-                display:none;
-                &:checked ~ .customRadio{
-                    transform: scale(1);
-                }
-            }
+            
             .customRadio{
                 display:block;
                 height: 65%;
@@ -314,8 +348,8 @@ body{
             padding: 1em 0;
             margin-top: 1.5em;
             border-top: 1px solid $darkGray;
-            display:grid;
             gap: .5em;
+            display:none;
             grid-template: repeat(2,1fr) / 40% 1fr;
             button{margin: 0; padding: 0;}
             input{
@@ -325,7 +359,7 @@ body{
                 outline:none;
             }
             .minimum{
-                width: 75%;
+                width: 100%;
                 max-width: 100px;
                 background: none;
                 color: $black;
@@ -333,6 +367,7 @@ body{
                 text-align: start;
                 padding-left: 1em;
                 justify-self: flex-end;
+                display:flex;
             }
             .dollarSign{
                 padding: 0 .5em;

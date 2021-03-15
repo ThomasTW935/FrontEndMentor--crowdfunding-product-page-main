@@ -1,4 +1,22 @@
-toggleModal()
+let stats = {
+    backed: 89914,
+    backers: 5007,
+    daysLeft: 56,
+    goal: 100000
+}
+
+let progressBarChange = ()=>{
+    let progress = stats.backed / stats.goal
+    let progressBar = document.querySelector('.progress')
+    progressBar.style.transform = `scaleX(${progress})`
+}
+
+let init = ()=>{
+    toggleModal()
+    progressBarChange()
+}
+
+init()
 
 function toggleModal(){
     let buttons = document.querySelectorAll('.modal__toggle')
@@ -26,4 +44,3 @@ function toggleModal(){
         })
     })
 }
-
