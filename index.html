@@ -82,7 +82,7 @@
         Featuring artisan craftsmanship, the simplicity of design creates extra desk space below your computer 
         to allow notepads, pens, and USB sticks to be stored under the stand.
       </p>
-      <div class="card">
+      <div class="card item__bambooCon">
         <div class="card__header">
           <h3 class='title'>Bamboo Stand</h3>
           <p class='pledge'>Pledge $25 or more</p>
@@ -91,27 +91,27 @@
           You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and 
           you’ll be added to a special Backer member list.
         </p>
-        <h3 class='itemLeft'><span class='value'>101</span> left</h3>
+        <h3 class='itemLeft'><span class='value bamboo'>101</span> left</h3>
         <label for='pledge25' class='modal__toggle pledge__toggle'>Select Reward</label>
       </div>
-      <div class="card">
+      <div class="card item__blackCon">
         <div class="card__header">
           <h3 class='title'>Black Edition Stand</h3>
           <p class='pledge'>Pledge $75 or more</p>
         </div>
         <p class='description'>You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer 
         member list. Shipping is included.</p>
-        <h3 class='itemLeft'><span class='value'>64</span> <span>left</span></h3>
+        <h3 class='itemLeft'><span class='value black'>64</span> <span>left</span></h3>
           <label for='pledge75' class='modal__toggle pledge__toggle'>Select Reward</label>
       </div>
-      <div class="card">
+      <div class="card item__mahoganyCon">
         <div class="card__header">
           <h3 class='title'>Mahogany Special Edition</h3>
           <p class='pledge'>Pledge $200 or more</p>
         </div>
         <p class='description'>You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added 
         to our Backer member list. Shipping is included.</p>
-        <h3 class='itemLeft'><span class='value'>0</span> <span>left</span></h3>
+        <h3 class='itemLeft'><span class='value mahogany'>0</span> <span>left</span></h3>
         <label for='pledge200' class='modal__toggle pledge__toggle'>Out of Stock</label>
       </div>
     </section>
@@ -132,11 +132,11 @@
         <p class='description'>Choose to support us without a reward if you simply believe in our project. As a backer, 
         you will be signed up to receive product updates via email.</p>
         <div class='CTACon '>
-          <input type='number' min='0' placeholder='Enter your pledge'/>
-          <button class='ctaContinue modal__toggle toggle__completed--show'>Continue</button>
+          <input type='number' class='pledgeInput--noReward' data-value='noReward' min='0' placeholder='Enter your pledge' required/>
+          <button class='ctaContinue modal__toggle toggle__completed--show' data-value='noReward'>Continue</button>
         </div>
       </div>
-      <div class="main__modalCard ">
+      <div class="main__modalCard item__bambooCon ">
         <input class='radio' type="radio" name="pledgeReward" id="pledge25">
         <div class='card__header'>
           <label for='pledge25'>
@@ -147,14 +147,14 @@
         </div>
         <p class='description'>You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and
         you’ll be added to a special Backer member list.</p>
-        <p class="itemLeft"><span class='value'>101</span> <span>left</span></p>
+        <p class="itemLeft"><span class='value bamboo'>101</span> <span>left</span></p>
         <div class='CTACon '>
-          <input type='number' min='25' placeholder='Enter your pledge'/>
-          <button class='minimum'><span class='dollarSign'>$</span>25</button>
-          <button class='modal__toggle toggle__completed--show'>Continue</button>
+          <input type='number' class='pledgeInput--bamboo' data-value='bamboo' min='25' placeholder='Enter your pledge'/>
+          <button class='minimum' data-value='bamboo' data-minimum="25"><span class='dollarSign'>$</span>25</button>
+          <button class='modal__toggle toggle__completed--show' data-value='bamboo'>Continue</button>
         </div>
       </div>
-      <div class="main__modalCard">
+      <div class="main__modalCard item__blackCon">
         <input class='radio' type="radio" name="pledgeReward" id="pledge75">
         <div class='card__header'>
           <label for='pledge75'>
@@ -165,14 +165,14 @@
         </div>
         <p class='description'>You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer
         member list. Shipping is included.</p>
-        <p class="itemLeft"><span class='value'>64</span> <span>left</span></p>
+        <p class="itemLeft"><span class='value black'>64</span> <span>left</span></p>
         <div class="CTACon ">
-          <input type='number' min='75' placeholder='Enter your pledge'/>
-          <button class='minimum'><span class='dollarSign'>$</span>75</button>
-          <button class='modal__toggle toggle__completed--show'>Continue</button>
+          <input type='number' class='pledgeInput--black' data-value='black' min='75' placeholder='Enter your pledge' required/>
+          <button class='minimum'  data-value='black' data-minimum='75'><span class='dollarSign'>$</span>75</button>
+          <button class='modal__toggle toggle__completed--show' data-value='black'>Continue</button>
         </div>
       </div>
-      <div class="main__modalCard">
+      <div class="main__modalCard item__mahoganyCon">
         <input class='radio' type="radio" name="pledgeReward" id="pledge200">
         <div class='card__header'>
           <label for='pledge200'>
@@ -183,11 +183,11 @@
         </div>
         <p class='description'>You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added
         to our Backer member list. Shipping is included.</p>
-        <p class="itemLeft"><span class='value'>0</span> <span ></span>left</span></p>
+        <p class="itemLeft"><span class='value mahogany'>0</span> <span ></span>left</span></p>
         <div class="CTACon ">
-          <input type='number' min='200' placeholder='Enter your pledge'/>
-          <button class='minimum'><span class='dollarSign'>$</span>200</button>
-          <button class='modal__toggle toggle__completed--show'>Continue</button>
+          <input type='number' class='pledgeInput--mahogany' data-value='mahogany' min='200' placeholder='Enter your pledge' required/>
+          <button class='minimum' data-value='mahogany' data-minimum="200"><span class='dollarSign'>$</span>200</button>
+          <button class='modal__toggle toggle__completed--show' data-value='mahogany'>Continue</button>
         </div>
       </div>
     </section>
