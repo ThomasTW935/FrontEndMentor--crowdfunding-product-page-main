@@ -11,26 +11,46 @@ let data = {
         mahogany: 0,
     }
 }
-let setItems = ()=>{
-    let items = document.querySelectorAll('.value')
-    items.forEach(item=>{
-        for(key in data.items){
-            if(item.classList.contains(key)){
-                item.innerHTML = data.items[key]
-            }
+let updateData = (item,amount,data)=>{
+    data.stats.backed += amount
+    data.stats.backers++
+    data.items[item]--
+
+    setStats(data)
+}
+let setItems = (data)=>{
+    for(key in data.items){
+        let items = document.querySelectorAll(`.item__${key}Con .value`)
+        items.forEach(item=>{
+            item.innerHTML = data.items[key]
+        })
+        if(data.items[key] < 1){
+            let cons = document.querySelectorAll(`.item__${key}Con`)
+            cons.forEach(con=>{
+                con.classList.add('card--disabled')
+            })
         }
-    })
+    }
 }
 let formHandler= (button)=>{
-    let dataValue = button.attributes['data-value'].value
-    let input = document.querySelector(`.pledgeInput--${dataValue}`)
     const numbersOnly = /[0-9]/;
-    let value = parseInt(input.value);
-    let min = parseInt(input.min)
+    let value,min
+    let dataValue = button.attributes['data-value'].value
+    if(!button.classList.contains('minimum')){
+        let input = document.querySelector(`.pledgeInput--${dataValue}`)
+        value = parseInt(input.value);
+        min = parseInt(input.min)
+    } else {
+         value = parseInt(button.attributes['data-minimum'].value)
+         min = value
+    }
+    if(numbersOnly.test(value) && value >= min){
+        updateData(dataValue,value,data)
+    }
     return numbersOnly.test(value) && value >= min
 }
 
-let progressBarChange = ()=>{
+let progressBarChange = (data)=>{
     let progress = data.stats.backed / data.stats.goal
     let progressBar = document.querySelector('.progress')
     progressBar.style.transform = `scaleX(${progress})`
@@ -45,14 +65,13 @@ let setStats = (data)=>{
             }
         }
     })
-    progressBarChange()
+    progressBarChange(data)
+    setItems(data)
 }
 
 let init = ()=>{
     toggleModal()
     setStats(data)
-    
-    setItems()
 }
 
 init()
@@ -72,7 +91,7 @@ function toggleModal(){
             } else if(button.classList.contains('pledge__toggle')){
                 mainModal.classList.toggle('hide')
                 mainBg.classList.toggle('hide')
-            } else if(button.classList.contains('toggle__completed--show')){
+            } else if(button.classList.contains('toggle__completed--show') || button.classList.contains('minimum')){
                 if(formHandler(button)){
                     mainModal.classList.toggle('hide')
                     mainCompleted.classList.toggle('hide')

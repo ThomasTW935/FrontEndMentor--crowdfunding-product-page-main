@@ -329,45 +329,31 @@ body {
   padding: 1em 0;
 }
 
-.main .card {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 1em;
-}
-
-.main .card, .main__modalCard {
+.main .card, .main .card--disabled, .main__modalCard {
   border-radius: 6px;
   padding: 1em;
   border: 1px solid #7a7a7a;
   margin-top: 1.5em;
 }
 
-.main .card:last-child, .main__modalCard:last-child {
-  opacity: .5;
-}
-
-.main .card .title, .main__modalCard .title {
+.main .card .title, .main .card--disabled .title, .main__modalCard .title {
   font-weight: 600;
   font-size: 1em;
 }
 
-.main .card .pledge, .main__modalCard .pledge {
+.main .card .pledge, .main .card--disabled .pledge, .main__modalCard .pledge {
   padding: .5em 0;
   color: #3cb4ac;
 }
 
-.main .card .description, .main__modalCard .description {
+.main .card .description, .main .card--disabled .description, .main__modalCard .description {
+  font-size: .8em;
   margin: 1em 0;
   color: #7a7a7a;
 }
 
-.main .card .itemLeft, .main__modalCard .itemLeft {
-  font-size: 1rem;
+.main .card .itemLeft, .main .card--disabled .itemLeft, .main__modalCard .itemLeft {
+  font-size: .9rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -379,12 +365,12 @@ body {
   gap: .5em;
 }
 
-.main .card .itemLeft .value, .main__modalCard .itemLeft .value {
+.main .card .itemLeft .value, .main .card--disabled .itemLeft .value, .main__modalCard .itemLeft .value {
   font-size: 2em;
   color: black;
 }
 
-.main .card button, .main .card .pledge__toggle, .main__modalCard button, .main__modalCard .pledge__toggle {
+.main .card button, .main .card .pledge__toggle, .main .card--disabled button, .main .card--disabled .pledge__toggle, .main__modalCard button, .main__modalCard .pledge__toggle {
   background: #3cb4ac;
   color: white;
   border-radius: 100px;
@@ -398,11 +384,21 @@ body {
   place-items: Center;
   align-self: flex-start;
   padding: .5em .75em;
-  max-width: 170px;
+  max-width: 150px;
+  margin-top: 1em;
 }
 
-.main .card button:hover, .main .card button:active, .main .card .pledge__toggle:hover, .main .card .pledge__toggle:active, .main__modalCard button:hover, .main__modalCard button:active, .main__modalCard .pledge__toggle:hover, .main__modalCard .pledge__toggle:active {
+.main .card button:hover, .main .card button:active, .main .card .pledge__toggle:hover, .main .card .pledge__toggle:active, .main .card--disabled button:hover, .main .card--disabled button:active, .main .card--disabled .pledge__toggle:hover, .main .card--disabled .pledge__toggle:active, .main__modalCard button:hover, .main__modalCard button:active, .main__modalCard .pledge__toggle:hover, .main__modalCard .pledge__toggle:active {
   background: #147b74;
+}
+
+.main .card--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.main .card--disabled .pledge__toggle {
+  background-color: #7a7a7a;
 }
 
 .main__modal {

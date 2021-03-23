@@ -235,19 +235,11 @@ body{
             padding: 1em 0;
         }
     }
-    .card{
-        display:flex;
-        flex-direction:column;
-        gap: 1em;
-    }
-    .card,&__modalCard{
+    .card,.card--disabled,&__modalCard{
         border-radius: 6px;
         padding: 1em;
         border: 1px solid $darkGray;
         margin-top: 1.5em;
-        &:last-child{
-            opacity: .5;
-        }
         .title{
             font-weight: 600;
             font-size: 1em;
@@ -257,11 +249,12 @@ body{
             color: $moderateCyan
         }
         .description{
+            font-size: .8em;
             margin: 1em 0;
             color: $darkGray;
         }
         .itemLeft{
-            font-size: 1rem;
+            font-size: .9rem;
             display:flex;
             align-items:center;
             margin: .5em 0;
@@ -279,8 +272,14 @@ body{
             place-items:Center;
             align-self: flex-start;
             padding: .5em .75em;
-            max-width: 170px;
+            max-width: 150px;
+            margin-top: 1em ;
         }
+    }
+    .card--disabled{
+        opacity: 0.5;
+        pointer-events: none;
+        .pledge__toggle{background-color: $darkGray;}
     }
     &__modal{
         position:absolute;
